@@ -2,6 +2,7 @@ import User from "@/components/user";
 import UnverifiedUser from "@/components/user/unverifiedUser";
 import { useAuth } from "@/context/authContext";
 import { auth } from "@/firebase/clientApp";
+import useThemeChange from "@/hooks/themeChange";
 import { Box, Button } from "@/ui-library";
 import React, { useEffect, useState } from "react";
 
@@ -34,10 +35,10 @@ import React, { useEffect, useState } from "react";
 // }
 
 const Me = ({ slug }: any) => {
-  const { user, updateUserInfo } = useAuth();
-  const [isVerified, setIsVerified] = useState(user.emailVerified);
-
-  return <User />;
+	const { user, updateUserInfo } = useAuth();
+	const [isVerified, setIsVerified] = useState(user.emailVerified);
+	useThemeChange("Theme 1");
+	return <User />;
 };
 
 export default Me;
